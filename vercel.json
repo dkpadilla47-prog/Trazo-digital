@@ -1,5 +1,9 @@
 {
-  "cleanUrls": true,
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/gracias", "destination": "/gracias.html" },
+    { "source": "/privacidad", "destination": "/privacidad.html" }
+  ],
   "headers": [
     { "source": "/(.*)", "headers": [
       { "key": "X-Content-Type-Options", "value": "nosniff" },
