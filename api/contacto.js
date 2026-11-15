@@ -17,19 +17,6 @@ function db() {
 
 export default async function handler(req, res) {
   const ir = (estado) => res.redirect(303, estado === 'ok' ? '/gracias' : `/?estado=${estado}#contacto`);
-  // DIAGNÓSTICO TEMPORAL: /api/contacto?diagnostico=1 (borrar este bloque cuando todo funcione)
-  if (req.method === 'GET' && req.query?.diagnostico === '1') {
-    const r = { tieneURL: Boolean(DB_URL), tieneResend: Boolean(process.env.RESEND_API_KEY) };
-    if (DB_URL) {
-      try {
-        const { sql, listo } = db();
-        await listo;
-        const t = await sql`SELECT count(*)::int AS n FROM solicitudes`;
-        r.tabla = 'ok'; r.filas = t[0].n;
-      } catch (e) { r.tabla = 'error'; r.codigo = String(e.code || e.name || 'desconocido'); }
-    }
-    return res.status(200).json(r);
-  }
   if (req.method !== 'POST') { res.setHeader('Allow', 'POST'); return res.status(405).end(); }
 
   const b = req.body || {};
