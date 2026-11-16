@@ -90,3 +90,4 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
 
 .card img.thumb{aspect-ratio:16/9;object-position:top}
 .skip{position:absolute;left:-9999px;top:8px}.skip:focus{left:16px;z-index:50;background:var(--green);color:var(--slate);padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:500}
+.faq details{border-top:1px solid var(--steel);padding:16px 0}.faq details:last-child{border-bottom:1px solid var(--steel)}.faq summary{cursor:pointer;font:600 16px/1.5 var(--sans);color:var(--frost)}.faq p{margin-top:8px;max-width:70ch}
